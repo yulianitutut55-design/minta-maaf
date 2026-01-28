@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu Sayangku</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        /* Animasi titik-titik warna pink */
+        .dot {
+            position: absolute;
+            background-color: rgba(255, 102, 178, 0.5);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        .dot:nth-child(even) {
+            background-color: rgba(255, 179, 217, 0.6);
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 40px 25px;
+            max-width: 450px;
+            margin: 30px auto;
+            box-shadow: 0 0 30px rgba(255, 102, 178, 0.4);
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            color: #ff4d94;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .sorry-text {
+            font-size: 36px;
+            color: #ff1a75;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 5px rgba(255, 102, 178, 0.3);
+        }
+        p {
+            color: #444;
+            font-size: 19px;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        .highlight {
+            color: #ff4d94;
+            font-weight: 500;
+        }
+        .btn {
+            background-color: #ff4d94;
+            color: white;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 35px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 102, 178, 0.3);
+        }
+        .btn:hover {
+            background-color: #ff1a75;
+            transform: scale(1.05);
+        }
+        .footer {
+            color: #ff4d94;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animasi titik-titik -->
+    <script>
+        // Membuat titik-titik animasi secara acak
+        function createDots() {
+            const count = 20;
+            for (let i = 0; i < count; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.style.left = Math.random() * 100 + 'vw';
+                dot.style.width = Math.random() * 30 + 10 + 'px';
+                dot.style.height = dot.style.width;
+                dot.style.animationDelay = Math.random() * 6 + 's';
+                document.body.appendChild(dot);
+            }
+        }
+        createDots();
+    </script>
+
+    <div class="card">
+        <h1>Untuk Kamu, <span class="highlight">[Nama Pacar Kamu]</span></h1>
+        <div class="sorry-text">Aku Minta Maaf...</div>
+        
+        <!-- Musik "Sedia Aku Sebelum Hujan" -->
+        <audio controls autoplay loop muted>
+            <source src="link-musik-kamu-disini.mp3" type="audio/mpeg">
+            Browser kamu tidak mendukung pemutar musik 😢
+        
+        <small style="color: #888; display: block; margin: 10px 0;">(Nyalakan suara ya sayang...)</small>
+
+        <p>Ketika musik ini mulai bermain, aku ingat bagaimana kita dulu sering dengarnya bareng sebelum hujan datang.</p>
+        <p>Aku tahu aku salah pada hal yang aku lakukan kemarin. Aku tidak sengaja membuatmu sedih, dan itu membuat hatiku terasa berat seperti awan hujan yang penuh.</p>
+        <p>Kamu adalah <span class="highlight">kehangatan setelah hujan</span>, warna pelangi yang membuat hari ku jadi cerah. Tanpamu, hidupku seperti musim hujan yang tidak pernah berakhir.</p>
+        <p>Aku berjanji akan lebih menghargaimu, lebih mendengarmu, dan menjadi pasangan yang pantas untukmu. Bolehkah kamu memberikan aku kesempatan untuk memperbaiki semua ini?</p>
+        
+        <button class="btn" onclick="showMessage()">Memaafkan Aku Sayang</button>
+        
+        <div class="footer">Aku Cinta Kamu Selalu 💖</div>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert(`Aku sangat bersyukur kamu mau memaafkan aku ${document.querySelector('.highlight').textContent}! 🥰\nAku janji akan selalu menjaga kamu, seperti pelindung sebelum hujan datang. Cinta kamu selamanya!`);
+        }
+        // Nge-unmute musik ketika pengguna klik di layar (karena browser membatasi autoplay suara)
+        document.body.addEventListener('click', () => {
+            const audio = document.querySelector('audio');
+            audio.muted = false;
+        }, { once: true });
+    </script>
+</body>
+</html>
